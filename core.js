@@ -18,9 +18,12 @@ const envelopeImages = {
 // Function to start the game
 document.getElementById("start-button").addEventListener("click", startGame);
 
-function startGame() {
-    const password = prompt("Voer hier het wachtwoord in.");
+async function startGame() {
+    let password = await prompt("Voer hier het wachtwoord in.").then((value) => {
+        return value;
+    });
 
+    console.log(password)
     if (password === "2655") {
         colorMap = {
             red: "blue",
