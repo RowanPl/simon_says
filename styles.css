@@ -1,0 +1,137 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#colors {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    gap: 15px;
+    margin: 20px;
+    transform: rotate(45deg);
+}
+
+.color-btn {
+    width: 120px;
+    height: 120px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.color-btn:hover {
+    transform: scale(1.05);
+}
+
+#red {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+#green {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+}
+
+#blue {
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+}
+
+#yellow {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+
+#start-button {
+    margin: 100px 0 0 0 ;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#start-button:hover {
+    transform: translateY(-3px); /* Updated hover effect without rotation */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.flash {
+    animation: flashAnimation 0.5s ease-in-out;
+}
+
+@keyframes flashAnimation {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(3); } /* Increase brightness */
+    100% { filter: brightness(1); }
+}
+
+#envelope-text {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 20px 0;
+    /*transform: rotate(-45deg);*/
+}
+
+#envelope-image {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    /*transform: rotate(45deg);*/
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1) ; }
+}
+
+#envelope-image[style*="block"] {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@media (max-width: 600px) {
+    #colors {
+        grid-template-columns: repeat(2, 100px);
+        gap: 10px;
+    }
+
+    .color-btn {
+        width: 100px;
+        height: 100px;
+    }
+
+    #start-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
