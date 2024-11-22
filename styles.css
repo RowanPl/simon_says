@@ -1,4 +1,4 @@
-
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -63,9 +63,8 @@ body {
     background: linear-gradient(135deg, #f7971e, #ffd200);
 }
 
-
 #start-button {
-    margin: 100px 0 0 0 ;
+    margin: 100px 0 0 0;
     padding: 15px 40px;
     font-size: 18px;
     font-weight: 600;
@@ -79,7 +78,7 @@ body {
 }
 
 #start-button:hover {
-    transform: translateY(-3px); /* Updated hover effect without rotation */
+    transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -89,49 +88,135 @@ body {
 
 @keyframes flashAnimation {
     0% { filter: brightness(1); }
-    50% { filter: brightness(3); } /* Increase brightness */
+    50% { filter: brightness(3); }
     100% { filter: brightness(1); }
 }
 
-#envelope-text {
-    color: white;
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 20px 0;
-    /*transform: rotate(-45deg);*/
+/* Modal Styles */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-#envelope-image {
-    max-width: 300px;
-    height: auto;
+#modal-content {
+    background: white;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    /*transform: rotate(45deg);*/
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1) ; }
+#modal.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
-#envelope-image[style*="block"] {
-    animation: fadeIn 0.5s ease-out forwards;
+#modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
 }
 
-@media (max-width: 600px) {
-    #colors {
-        grid-template-columns: repeat(2, 100px);
-        gap: 10px;
-    }
-
-    .color-btn {
-        width: 100px;
-        height: 100px;
-    }
-
-    #start-button {
-        padding: 12px 30px;
-        font-size: 16px;
-    }
+#modal-text {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
 }
+
+#close-modal {
+    padding: 10px 20px;
+    background: #ff4b2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#close-modal:hover {
+    background: #ff6e52;
+}
+
+/* Prompt Modal */
+#prompt-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#prompt-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#prompt-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#prompt-modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+#prompt-modal-text {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#prompt-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+}
+
+#submit-prompt,
+#close-prompt-modal {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 0 5px;
+}
+
+#submit-prompt:hover {
+    background: #5469d4;
+}
+
+#close-prompt-modal:hover {
+    background: #ff4b2b;
+}
+

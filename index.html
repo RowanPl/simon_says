@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Simon Says Game</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
 <div id="game">
@@ -19,6 +18,26 @@
     <p id="envelope-text"></p>
     <img id="envelope-image" src="" alt="Envelope" style="display: none; rotate: none">
 </div>
-</body>
+
+<!-- Modal for Alerts -->
+<div id="modal" class="hidden">
+    <div id="modal-content">
+        <p id="modal-text"></p>
+        <button id="close-modal">Close</button>
+    </div>
+</div>
+
+<!-- Modal for Prompt -->
+<div id="prompt-modal" class="hidden">
+    <div id="prompt-modal-content">
+        <p id="prompt-modal-text"></p>
+        <input type="text" id="prompt-input" />
+        <button id="submit-prompt">Submit</button>
+        <button id="close-prompt-modal">Cancel</button>
+    </div>
+</div>
+
+
 <script src="core.js"></script>
+</body>
 </html>

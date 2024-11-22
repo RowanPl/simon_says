@@ -150,3 +150,59 @@ document.querySelectorAll(".color-btn").forEach(button => {
         }
     });
 });
+// Modal elements for alerts
+const modal = document.getElementById('modal');
+const modalText = document.getElementById('modal-text');
+const closeModalButton = document.getElementById('close-modal');
+
+// Modal elements for prompts
+const promptModal = document.getElementById('prompt-modal');
+const promptModalText = document.getElementById('prompt-modal-text');
+const promptInput = document.getElementById('prompt-input');
+const submitPromptButton = document.getElementById('submit-prompt');
+const closePromptModalButton = document.getElementById('close-prompt-modal');
+
+// Function to show alert modal
+function showModal(message) {
+    modalText.textContent = message;
+    modal.classList.remove('hidden');
+}
+
+// Close alert modal event
+closeModalButton.addEventListener('click', () => {
+    modal.classList.add('hidden');
+});
+
+// Replace default alert
+window.alert = function (message) {
+    showModal(message);
+};
+
+// Function to show prompt modal
+function showPrompt(message, callback) {
+    promptModalText.textContent = message;
+    promptInput.value = '';
+    promptModal.classList.remove('hidden');
+
+    // Handle submit
+    submitPromptButton.onclick = function () {
+        callback(promptInput.value); // Pass the value back to the callback
+        promptModal.classList.add('hidden');
+    };
+
+    // Handle cancel
+    closePromptModalButton.onclick = function () {
+        callback(null); // Pass null if canceled
+        promptModal.classList.add('hidden');
+    };
+}
+
+// Replace default prompt
+window.prompt = function (message, defaultValue = '') {
+    return new Promise((resolve) => {
+        showPrompt(message, resolve);
+    });
+};
+
+// Example usage of the prompt
+
